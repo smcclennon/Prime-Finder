@@ -94,20 +94,22 @@ except:
 try:
     with open(f"{proj}.config", "r") as f:
         config=f.readlines()
+        total=int(config[0])
+        found=int(config[1])-1
 except:
     with open(f"{proj}.config", "w") as f:
         f.write('0\n1')
     with open(f"{proj}.config", "r") as f:
         config=f.readlines()
     print(f'Created {proj}.config')
+    total=int(config[0])
+    found=int(config[1])-1
 try:
     # https://stackoverflow.com/questions/549109
     import win32api, win32con
     win32api.SetFileAttributes(f'{proj}.config',win32con.FILE_ATTRIBUTE_HIDDEN)  # Try to hide the config file
 except:
     pass
-total=int(config[0])
-found=int(config[1])-1
 
 
 os.system('cls')
@@ -123,6 +125,7 @@ while True:
             if num % i == 0: # If number is divisible by a number other than 1 or itself
                 invalid = 1
         taskDuration=round(time.time()-taskStart, 2)
+        # https://stackoverflow.com/questions/5676646
         ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
         if invalid==0:
             nR='true'
