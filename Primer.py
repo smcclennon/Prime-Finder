@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.0'
+ver = '1.0.1'
 proj = 'Primer'
 
 
@@ -120,15 +120,14 @@ while True:
         for i in range(2,num):
             total=total+1
             calculations=calculations+1
-            taskDuration=round(time.time()-taskStart, 2)
-            ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num} % {i}')
             if num % i == 0: # If number is divisible by a number other than 1 or itself
                 invalid = 1
-
+        taskDuration=round(time.time()-taskStart, 2)
+        ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
         if invalid==0:
             nR='true'
             found=found+1
-            print(f'Found Prime [#{found}]!  --- >  {num}  < ---  {calculations} calculations in {taskDuration} seconds')
+            print(f'Found Prime #{found:,}!  --- >  {num:,}  < ---  {calculations:,} calculations in {taskDuration} seconds')
             calculations=0
             with open(f"{proj}.txt", "a") as f:
                 f.write('\n'+str(num))
