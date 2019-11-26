@@ -1,6 +1,6 @@
 # Primer Compatability version
 # github.com/smcclennon/Primer
-ver = '1.0.0C'
+ver = '1.0.1C'
 proj = 'Primer(C)'
 
 
@@ -31,16 +31,17 @@ except:
 try:
     with open(f"{proj}.config", "r") as f:
         config=f.readlines()
+        total=int(config[0])
+        found=int(config[1])-1
 except:
     with open(f"{proj}.config", "w") as f:
         f.write('0\n1')
     with open(f"{proj}.config", "r") as f:
         config=f.readlines()
     print(f'Created {proj}.config')
+    total=int(config[0])
+    found=int(config[1])-1
 
-
-total=int(config[0])
-found=int(config[1])-1
 
 
 
@@ -60,7 +61,7 @@ while True:
         if invalid==0:
             nR='true'
             found=found+1
-            print(f'== {proj} v{ver} ==  Found Prime [#{found}]!  ---> {num} <---  {calculations} calculations in {taskDuration} seconds  --- Total Calculations: {total}')
+            print(f'== {proj} v{ver} ==  Found Prime [#{found:,}]!  ---> {num:,} <---  {calculations:,} calculations in {taskDuration} seconds  --- Total Calculations: {total:,}')
             calculations=0
             with open(f"{proj}.txt", "a") as f:
                 f.write('\n'+str(num))
