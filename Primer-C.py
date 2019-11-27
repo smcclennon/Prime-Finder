@@ -1,7 +1,7 @@
 # Primer Compatability version
 # github.com/smcclennon/Primer
 ver = '1.0.1C'
-proj = 'Primer(C)'
+proj = 'Primer-C'
 
 
 import time
