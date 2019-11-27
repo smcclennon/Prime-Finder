@@ -118,6 +118,10 @@ while True:
         taskStart=time.time()
         nR='false'
     while invalid==0:
+        if str(num)[-1]=='2' or str(num)[-1]=='5' or str(num)[-1]=='0':
+            total=total+1
+            calculations=calculations+1
+            invalid=1
         for i in range(2,num):
             total=total+1
             calculations=calculations+1
