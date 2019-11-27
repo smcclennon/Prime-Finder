@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.2'
+ver = '1.0.3'
 proj = 'Primer'
 
 
@@ -85,7 +85,7 @@ try:
         f.seek(-2, os.SEEK_END)     # Jump to the second last byte.
         while f.read(1) != b"\n":   # Until EOL is found...
             f.seek(-2, os.SEEK_CUR) # ...jump back the read byte plus one more.
-        num = int(f.readline().decode('utf-8')) #get the latest prime number
+        num = int(f.readline().decode('utf-8'))+1 #get the latest prime number
 except:
     with open(f"{proj}.txt", "w") as f:
         f.write(f'== {proj} v{ver} ==\ngithub.com/smcclennon/{proj}')
