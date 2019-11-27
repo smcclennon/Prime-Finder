@@ -1,6 +1,6 @@
 # Primer Compatability version
 # github.com/smcclennon/Primer
-ver = '1.0.1C'
+ver = '1.0.2C'
 proj = 'Primer-C'
 
 
@@ -54,11 +54,10 @@ while True:
         for i in range(2,num):
             total=total+1
             calculations=calculations+1
-            taskDuration=round(time.time()-taskStart, 2)
             if num % i == 0: # If number is divisible by a number other than 1 or itself
                 invalid = 1
-
         if invalid==0:
+            taskDuration=round(time.time()-taskStart, 2)
             nR='true'
             found=found+1
             print(f'== {proj} v{ver} ==  Found Prime [#{found:,}]!  ---> {num:,} <---  {calculations:,} calculations in {taskDuration} seconds  --- Total Calculations: {total:,}')
