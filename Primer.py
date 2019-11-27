@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.1'
+ver = '1.0.2'
 proj = 'Primer'
 
 
@@ -11,7 +11,6 @@ ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Checking for 
 updateAttempt = 0
 print('Checking for updates...', end='\r')
 try:  # Remove previous version if just updated
-    proj = options['proj']
     with open(f'{proj}.tmp', 'r') as content_file:
         oldFile = str(content_file.read())
         # If the old version has the current filename, don't delete
