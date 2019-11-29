@@ -79,22 +79,11 @@ config=[]
 
 
 try:
-    # https://stackoverflow.com/questions/3346430
-    with open(f"{proj}.txt", "rb") as f:
-        #first = f.readline()        # Read the first line.
-        f.seek(-2, os.SEEK_END)     # Jump to the second last byte.
-        while f.read(1) != b"\n":   # Until EOL is found...
-            f.seek(-2, os.SEEK_CUR) # ...jump back the read byte plus one more.
-        num = int(f.readline().decode('utf-8'))+1 #get the latest prime number
-except:
-    with open(f"{proj}.txt", "w") as f:
-        f.write(f'== {proj} v{ver} ==\ngithub.com/smcclennon/{proj}')
-
-try:
     with open(f"{proj}.config", "r") as f:
         config=f.readlines()
         total=int(config[0])
         found=int(config[1])-1
+        num=int(config[2])+1
 except:
     with open(f"{proj}.config", "w") as f:
         f.write('0\n1')
@@ -118,7 +107,7 @@ while True:
         taskStart=time.time()
         nR='false'
     while invalid==0:
-        if str(num)[-1]=='2' or str(num)[-1]=='5' or str(num)[-1]=='0':
+        if str(num)[-1]=='2' or str(num)[-1]=='4' or str(num)[-1]=='5' or str(num)[-1]=='6' or str(num)[-1]=='8' or str(num)[-1]=='0':
             total=total+1
             calculations=calculations+1
             invalid=1
@@ -133,12 +122,12 @@ while True:
         if invalid==0:
             nR='true'
             found=found+1
-            print(f'Found Prime #{found:,}!  --- >  {num:,}  < ---  {calculations:,} calculations in {taskDuration} seconds')
+            print(f'Found Prime #{found:,}!  -->  {num:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
             calculations=0
             with open(f"{proj}.txt", "a") as f:
                 f.write('\n'+str(num))
             with open(f"{proj}.config", "w") as f:
-                f.write(f'{total}\n{found}')
+                f.write(f'{total}\n{found}\n{num}')
             break
     num=num+1
     invalid=0
