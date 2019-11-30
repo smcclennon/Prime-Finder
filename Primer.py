@@ -114,7 +114,7 @@ while True:
         for i in range(2,num):
             total=total+1
             calculations=calculations+1
-            if str(num)[-1]!='2' or str(num)[-1]!='4' or str(num)[-1]!='5' or str(num)[-1]!='6' or str(num)[-1]!='8' or str(num)[-1]!='0':
+            if str(i)[-1]!='2' or str(i)[-1]!='4' or str(i)[-1]!='5' or str(i)[-1]!='6' or str(i)[-1]!='8' or str(i)[-1]!='0':
                 if num % i == 0: # If number is divisible by a number other than 1 or itself
                     invalid = 1
         taskDuration=round(time.time()-taskStart, 2)
