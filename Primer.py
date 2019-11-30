@@ -114,8 +114,9 @@ while True:
         for i in range(2,num):
             total=total+1
             calculations=calculations+1
-            if num % i == 0: # If number is divisible by a number other than 1 or itself
-                invalid = 1
+            if str(num)[-1]!='2' or str(num)[-1]!='4' or str(num)[-1]!='5' or str(num)[-1]!='6' or str(num)[-1]!='8' or str(num)[-1]!='0':
+                if num % i == 0: # If number is divisible by a number other than 1 or itself
+                    invalid = 1
         taskDuration=round(time.time()-taskStart, 2)
         # https://stackoverflow.com/questions/5676646
         ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
