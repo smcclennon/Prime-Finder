@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.3'
+ver = '1.0.4'
 proj = 'Primer'
 
 
@@ -99,6 +99,32 @@ try:
 except:
     pass
 
+def updateFile(f):
+    try:
+        if f == 'all':
+            with open(f"{proj}.txt", "a") as f:
+                f.write('\n'+str(num))
+            with open(f"{proj}.config", "w") as f:
+                f.write(f'{total}\n{found}\n{num}')
+        elif f == 'txt':
+            with open(f"{proj}.txt", "a") as f:
+                f.write('\n'+str(num))
+        elif f == 'config':
+            with open(f"{proj}.config", "w") as f:
+                f.write(f'{total}\n{found}\n{num}')
+    except Exception as e:
+        print(f'\n{e}\nThis was likely caused by prime numbers being generated too quickly.')
+        time.sleep(0.1)
+        if str(e)[-2] == 't': #.tx(t)
+            updateFile('txt')
+            print('\n- Storage file updated')
+        elif str(e)[-2] == 'g': #.confi(g)
+            updateFile('config')
+            print('\n- Config file updated')
+        else:
+            input('updateFile() Unknown fatal error')
+            exit()
+        print('File system is now up to date!\n')
 
 os.system('cls')
 nR='true' # New Round, track when a prime has just been found in the loop
@@ -124,10 +150,7 @@ while True:
             found=found+1
             print(f'Found Prime #{found:,}!  -->  {num:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
             calculations=0
-            with open(f"{proj}.txt", "a") as f:
-                f.write('\n'+str(num))
-            with open(f"{proj}.config", "w") as f:
-                f.write(f'{total}\n{found}\n{num}')
+            updateFile('all')
             break
     num=num+1
     invalid=0
