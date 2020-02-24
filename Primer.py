@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.4'
+ver = '1.0.5'
 proj = 'Primer'
 
 
@@ -127,30 +127,35 @@ def updateFile(f):
         print('File system is now up to date!\n')
 
 os.system('cls')
-nR='true' # New Round, track when a prime has just been found in the loop
+nR = 'true' # New Round, track when a prime has just been found in the loop
 while True:
-    if nR=='true':
-        taskStart=time.time()
-        nR='false'
-    while invalid==0:
-        if str(num)[-1]=='2' or str(num)[-1]=='4' or str(num)[-1]=='5' or str(num)[-1]=='6' or str(num)[-1]=='8' or str(num)[-1]=='0':
-            total=total+1
-            calculations=calculations+1
-            invalid=1
+    if nR == 'true':
+        taskStart = time.time()
+        nR = 'false'
+
+    while invalid == 0:
+        if int(str(num)[-1]) % 2 == 0:  # If number is even (ends in 0, 2, 4, 6, 8)
+            total = total + 1
+            calculations = calculations + 1
+            invalid = 1  # Skip processing the number
+            break
+
         for i in range(3,num):
-            total=total+1
-            calculations=calculations+1
+            total = total + 1
+            calculations = calculations + 1
             if num % i == 0: # If number is divisible by a number other than 1 or itself
                 invalid = 1
-        taskDuration=round(time.time()-taskStart, 2)
-        # https://stackoverflow.com/questions/5676646
-        ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
-        if invalid==0:
-            nR='true'
-            found=found+1
+        taskDuration = round(time.time() - taskStart, 2) 
+
+        if invalid == 0:
+            nR = 'true'
+            found = found + 1
             print(f'Found Prime #{found:,}!  -->  {num:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
-            calculations=0
+            calculations = 0
             updateFile('all')
             break
-    num=num+1
-    invalid=0
+    
+    num = num + 1
+    invalid = 0
+    ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
+    # https://stackoverflow.com/questions/5676646
