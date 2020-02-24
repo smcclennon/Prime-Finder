@@ -6,7 +6,6 @@ This script will try to divide the target number between numbers 2-itself
 Example:
 ```
 Target number: 7
-7 / 2 != whole number
 7 / 3 != whole number
 7 / 4 != whole number
 7 / 5 != whole number
@@ -21,7 +20,7 @@ Target number is not prime!
 ### Download
 <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer.py">Windows
 </a>   -   <a
-href="https://github.com/smcclennon/Primer/releases/download/v1.0.1/Primer.C.py">Other operating systems</a>
+href="https://github.com/smcclennon/Primer/releases/download/v1.0.5/Primer-C.py">Other operating systems</a>
 
 ## Features
 - Automatic updates
@@ -40,7 +39,7 @@ Download the latest compatibility release (`Primer.C.py`)
 
 #### Requirements:
 - Python 3+
-- Windows
+- Windows (Or any OS with Primer-C)
 
 ## Screenshots
 ![Windows version](https://smcclennon.github.io/assets/images/screenshots/Primer/windows.png)
