@@ -1,65 +1,76 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.0.5'
+ver = '1.1.0'
 proj = 'Primer'
 
 
-import os, ctypes, time, urllib.request, json
+import os, time
+from distutils.version import LooseVersion as semver
 
-ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Checking for updates...')
 
-updateAttempt = 0
-print('Checking for updates...', end='\r')
-try:  # Remove previous version if just updated
-    with open(f'{proj}.tmp', 'r') as content_file:
-        oldFile = str(content_file.read())
-        # If the old version has the current filename, don't delete
-        if oldFile != os.path.basename(__file__):
-            os.remove(oldFile)
-    os.remove(f'{proj}.tmp')
-except:
-    pass
-while updateAttempt < 3:
-    updateAttempt = updateAttempt+1
-    try:
-        with urllib.request.urlopen("https://smcclennon.github.io/update/api/3") as url:
-            repo = []
-            for line in url.readlines():
-                repo.append(line.decode().strip())
-            apiLatest = repo[0]  # Latest release details
-            proj = repo[1]  # Project name
-            ddl = repo[2]  # Direct download
-            apiReleases = repo[3]  # List of patch notes
-        with urllib.request.urlopen(apiLatest) as url:
-            data = json.loads(url.read().decode())
-            latest = data['tag_name'][1:]
-        del data  # Prevent overlapping variable data
-        release = json.loads(urllib.request.urlopen(
-            apiReleases).read().decode())
-        releases = [
-            (data['tag_name'], data['body'])
-            for data in release
-            if data['tag_name'][1:] > ver][::-1]
-        updateAttempt = 3
+if os.name == 'nt':
+    Windows = True
+else:
+    Windows = False
+
+
+
+if Windows:
+    import ctypes, urllib.request, json
+    ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Checking for updates...')
+
+    updateAttempt = 0
+    print('Checking for updates...', end='\r')
+    try:  # Remove previous version if just updated
+        with open(f'{proj}.tmp', 'r') as content_file:
+            oldFile = str(content_file.read())
+            # If the old version has the current filename, don't delete
+            if oldFile != os.path.basename(__file__):
+                os.remove(oldFile)
+        os.remove(f'{proj}.tmp')
     except:
-        latest = '0'
-if latest > ver:
-    print('Update available!      ')
-    print(f'Latest Version: v{latest}\n')
-    for release in releases:
-        print(f'{release[0]}:\n{release[1]}\n')
-    confirm = input(str('Update now? [Y/n] ')).upper()
-    if confirm == '' or confirm == 'Y':
-        latestFilename = f'{proj} v{latest}.py'
-        # Download latest version to cwd
-        print(f'Downloading "{latestFilename}"...')
-        urllib.request.urlretrieve(ddl, latestFilename)
-        # Write the current filename to LTFO.tmp
-        f = open(f'{proj}.tmp', 'w')
-        f.write(str(os.path.basename(__file__)))
-        f.close()
-        os.system(f'"{latestFilename}"')  # Open latest version
-        exit()
+        pass
+    while updateAttempt < 3:
+        updateAttempt = updateAttempt+1
+        try:
+            with urllib.request.urlopen("https://smcclennon.github.io/update/api/3") as url:
+                repo = []
+                for line in url.readlines():
+                    repo.append(line.decode().strip())
+                apiLatest = repo[0]  # Latest release details
+                proj = repo[1]  # Project name
+                ddl = repo[2]  # Direct download
+                apiReleases = repo[3]  # List of patch notes
+            with urllib.request.urlopen(apiLatest) as url:
+                data = json.loads(url.read().decode())
+                latest = data['tag_name'][1:]
+            del data  # Prevent overlapping variable data
+            release = json.loads(urllib.request.urlopen(
+                apiReleases).read().decode())
+            releases = [
+                (data['tag_name'], data['body'])
+                for data in release
+                if semver(data['tag_name'][1:]) > semver(ver)]
+            updateAttempt = 3
+        except:
+            latest = '0'
+    if semver(latest) > semver(ver):
+        print('Update available!      ')
+        print(f'Latest Version: v{latest}\n')
+        for release in releases:
+            print(f'{release[0]}:\n{release[1]}\n')
+        confirm = input(str('Update now? [Y/n] ')).upper()
+        if confirm != 'N':
+            latestFilename = f'{proj} v{latest}.py'
+            # Download latest version to cwd
+            print(f'Downloading "{latestFilename}"...')
+            urllib.request.urlretrieve(ddl, latestFilename)
+            # Write the current filename to LTFO.tmp
+            f = open(f'{proj}.tmp', 'w')
+            f.write(str(os.path.basename(__file__)))
+            f.close()
+            os.system(f'"{latestFilename}"')  # Open latest version
+            exit()
 
 
 
@@ -92,12 +103,7 @@ except:
     print(f'Created {proj}.config')
     total=int(config[0])
     found=int(config[1])-1
-try:
-    # https://stackoverflow.com/questions/549109
-    import win32api, win32con
-    win32api.SetFileAttributes(f'{proj}.config',win32con.FILE_ATTRIBUTE_HIDDEN)  # Try to hide the config file
-except:
-    pass
+
 
 def updateFile(f):
     try:
@@ -126,7 +132,7 @@ def updateFile(f):
             exit()
         print('File system is now up to date!\n')
 
-os.system('cls')
+if Windows: os.system('cls')
 nR = 'true' # New Round, track when a prime has just been found in the loop
 while True:
     if nR == 'true':
@@ -145,17 +151,22 @@ while True:
             calculations = calculations + 1
             if num % i == 0: # If number is divisible by a number other than 1 or itself
                 invalid = 1
-        taskDuration = round(time.time() - taskStart, 2) 
+        if Windows: taskDuration = round(time.time() - taskStart, 2) 
 
         if invalid == 0:
+            if not Windows: taskDuration = round(time.time() - taskStart, 2) 
             nR = 'true'
             found = found + 1
-            print(f'Found Prime #{found:,}!  -->  {num:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
+            if Windows:
+                print(f'Found Prime [#{found:,}]!  -->  {num:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
+            else:
+                print(f'{proj} v{ver} >>  Found Prime [#{found:,}]!  --> {num:,} <--  [Total: {total:,}] {calculations:,} calculations in {taskDuration} seconds')
             calculations = 0
             updateFile('all')
             break
     
     num = num + 1
     invalid = 0
-    ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
+    if Windows:
+        ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {total:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {num:,}')
     # https://stackoverflow.com/questions/5676646
