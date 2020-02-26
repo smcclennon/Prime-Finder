@@ -17,7 +17,7 @@ Target number: 9
 Target number is not prime!
 ```
 
-<a href="https://github.com/smcclennon/SMN/releases/latest/download/LTFO.py">
+<a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer.py">
 
 <img src="https://smcclennon.github.io/update/download.png" alt="Download latest SMN release">
 
