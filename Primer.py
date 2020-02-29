@@ -36,33 +36,53 @@ try:
         #config["statistics"]["Primes Found"] -= 1
         config["statistics"]["Latest Prime"] += 1
 except:
-    with open(f"{proj}_config.json", "w") as config_file:
-        json.dump(config, config_file)
-    print(f'Created {proj}_config.json')
-    # Attempt to convert an old config into a new one
-    with open(f"Primer.config", "r") as File:
-        oldconfig=File.readlines()
-        config["statistics"]["Total Calculations"]=int(oldconfig[0])
-        config["statistics"]["Primes Found"]=int(oldconfig[1])
-        config["statistics"]["Latest Prime"]=int(oldconfig[2])
-    with open(f"{proj}_config.json", "w") as config_file:
-        json.dump(config, config_file)
-    print('Old config successfully migrated')
+    try:
+        with open(f"{proj}_config.json", "w") as config_file:
+            json.dump(config, config_file)
+        print(f'Created {proj}_config.json')
+        # Attempt to convert an old config into a new one
+        with open(f"Primer.config", "r") as File:
+            oldconfig=File.readlines()
+            config["statistics"]["Total Calculations"]=int(oldconfig[0])
+            config["statistics"]["Primes Found"]=int(oldconfig[1])
+            config["statistics"]["Latest Prime"]=int(oldconfig[2])
+        with open(f"{proj}_config.json", "w") as config_file:
+            json.dump(config, config_file)
+        print('Old config successfully migrated')
+    except:
+        pass
 
 if config["debugging"]["Force Unix"] == 'True':
     Windows = False
 
-if Windows:
-    import ctypes, urllib.request, json
-    ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Checking for updates...')
+
+
+
+
+
+
 
 # Updater: Used to check for new releases on GitHub
 # github.com/smcclennon/Updater
-import os  # detecting OS type (nt, posix, java), clearing console window,
-import sys  # flush stdout before restarting the script
+import os  # detecting OS type (nt, posix, java), clearing console window, restart the script
 from distutils.version import LooseVersion as semver  # as semver for readability
 import urllib.request, json  # load and parse the GitHub API
-if Windows:
+import platform  # Consistantly detect MacOS
+
+# Disable SSL certificate verification for MacOS (very bad practice, I know)
+# https://stackoverflow.com/a/55320961
+if platform.system() == 'Darwin':  # If MacOS
+    import ssl
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        # Legacy Python that doesn't verify HTTPS certificates by default
+        pass
+    else:
+        # Handle target environment that doesn't support HTTPS verification
+        ssl._create_default_https_context = _create_unverified_https_context
+
+if os.name == 'nt':
     import ctypes  # set Windows console window title
     ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Checking for updates...')
 
@@ -103,11 +123,9 @@ if semver(latest) > semver(ver):
         urllib.request.urlretrieve(ddl, os.path.basename(__file__))  # download the latest version to cwd
         import sys; sys.stdout.flush()  # flush any prints still in the buffer
         os.system('cls||clear')  # Clear console window
-        os.system(f'"{__file__}"' if Windows else f'python3 "{__file__}"')
+        os.system(f'"{__file__}"' if os.name == 'nt' else f'python3 "{__file__}"')
         import time; time.sleep(0.2)
         quit()
-
-
 
 
 
