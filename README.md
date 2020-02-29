@@ -39,7 +39,7 @@ Download the latest release (`Primer.py`) directly onto the target machine.
 Download the latest compatibility release (`Primer.C.py`)
 
 #### Requirements:
-- Python 3+
+- Python 3.6+
 
 ## Screenshots
 ![Windows version](https://smcclennon.github.io/assets/images/screenshots/Primer/windows.png)
