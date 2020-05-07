@@ -1,4 +1,15 @@
-# Primer
+# Primer++ (under development)
+Rewritten from the ground up in C++ with stability and performance improvements
+
+#### Requirements:
+- Windows (x86)
+- *(Linux support planned)*
+
+
+
+*Written in C++ on Windows 10*
+
+# Primer (Original)
 A python script that generates prime numbers
 
 This script will try to divide the target number between numbers 2-itself
@@ -28,15 +39,14 @@ Target number is not prime!
 - Cross Compatible
 - Generate and display prime numbers
 - Display total calculations
-- Display the elapsed time for the current prime-search
-- Display the current number being prime-tested
+- Display the elapsed time for the current prime-search (Windows only)
+- Display the current number being prime-tested (Windows only)
 - Save prime numbers to a file (`Primer.txt`)
-- Save generation statistics (total calculations, number of prime numbers found; `Primer.config`)
+- Save generation statistics (total calculations, number of prime numbers found; `Primer_config.json`)
+- Pickup where you left off *(on any OS with Python!)*
 
-## Windows installation
+## Usage
 Download the latest release (`Primer.py`) directly onto the target machine.
-## Unix-based OS installation
-Download the latest compatibility release (`Primer.C.py`)
 
 #### Requirements:
 - Python 3.6+
