@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.2.0'
+ver = '1.2.1'
 proj = 'Primer'
 
 
@@ -172,14 +172,15 @@ while True:
     while invalid == 0:
         if int(str(config["statistics"]["Latest Prime"])[-1]) % 2 == 0:  # If number is even (ends in 0, 2, 4, 6, 8)
             config["statistics"]["Total Calculations"] += 1
-            calculations = calculations + 1
+            calculations += 1
             invalid = 1  # Skip processing the number
             break
 
         for i in range(3,config["statistics"]["Latest Prime"]):
             config["statistics"]["Total Calculations"] += 1
-            calculations = calculations + 1
+            calculations += 1
             if config["statistics"]["Latest Prime"] % i == 0: # If number is divisible by a number other than 1 or itself
+                calculations += 1
                 invalid = 1
         if Windows: taskDuration = round(time.time() - taskStart, 2)
 
