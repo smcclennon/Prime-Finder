@@ -5,7 +5,6 @@ proj = 'Primer'
 
 
 import os, time, json
-from distutils.version import LooseVersion as semver  # as semver for readability
 
 
 invalid=0
@@ -125,7 +124,7 @@ if semver(latest) > semver(ver):
         import sys; sys.stdout.flush()  # flush any prints still in the buffer
         os.system('cls||clear')  # Clear console window
         os.system(f'"{__file__}"' if os.name == 'nt' else f'python3 "{__file__}"')
-        import time; time.sleep(0.2)
+        time.sleep(0.2)
         quit()
 
 
