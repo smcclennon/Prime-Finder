@@ -41,8 +41,8 @@ except:
             json.dump(config, config_file)
         print(f'Created {proj}_config.json')
         # Attempt to convert an old config into a new one
-        with open(f"Primer.config", "r") as File:
-            oldconfig=File.readlines()
+        with open(f"Primer.config", "r") as old_config_file:
+            oldconfig=old_config_file.readlines()
             config["statistics"]["Total Calculations"]=int(oldconfig[0])
             config["statistics"]["Primes Found"]=int(oldconfig[1])
             config["statistics"]["Latest Prime"]=int(oldconfig[2])
@@ -138,8 +138,8 @@ if semver(latest) > semver(ver):
 def updateFile(f):
     try:
         if f == 'all':
-            with open(f"{proj}.txt", "a") as prime_ffdb:
-                prime_ffdb.write('\n'+str(config["statistics"]["Latest Prime"]))
+            with open(f"{proj}.txt", "a") as prime_list:
+                prime_list.write('\n'+str(config["statistics"]["Latest Prime"]))
             with open(f"{proj}_config.json", "w") as config_file:
                 json.dump(config, config_file)
         elif f == 'txt':
