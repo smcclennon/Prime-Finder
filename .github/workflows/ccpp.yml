@@ -14,10 +14,10 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        g++ Primer++.cpp Primer++.o -o Primer++ --static -std=c++17
+        g++ Primer++.cpp -o Primer++ --static -std=c++17
     - uses: actions/upload-artifact@v2
       with:
-        name: windows_build
+        name: windows_build_raw
         path: Primer++
 
   build_macos:
@@ -30,7 +30,7 @@ jobs:
         clang++ Primer++.cpp -o Primer++ -std=c++17
     - uses: actions/upload-artifact@v2
       with:
-       name: macos_build
+       name: macos_build_dynamic
        path: Primer++
 
   build_linux:
@@ -43,5 +43,5 @@ jobs:
         g++ Primer++.cpp -o Primer++ -static -std=c++17
     - uses: actions/upload-artifact@v2
       with:
-        name: linux_build
+        name: linux_build_static
         path: Primer++
