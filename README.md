@@ -5,15 +5,16 @@
 <h2 align="center">Primer++</h2>
 <p align="center"><small>Rewritten from the ground up in C++ with stability and performance improvements</small></p>
 
+![C/C++ CI](https://github.com/smcclennon/Primer/workflows/C/C++%20CI/badge.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6dfa8cbba0284a2298ce7fa7fa1e265c)](https://www.codacy.com/manual/smcclennon/Primer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=smcclennon/Primer&amp;utm_campaign=Badge_Grade)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:python)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:cpp)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a4e85e15988e4dab380f/maintainability)](https://codeclimate.com/github/smcclennon/Primer/maintainability)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/smcclennon/Primer?include_prereleases)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/smcclennon/Primer/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/smcclennon/Primer)
 [![Github all downloads](https://img.shields.io/github/downloads/smcclennon/Primer/total.svg)](https://GitHub.com/smcclennon/Primer/releases/)
 [![HitCount](https://hits.dwyl.com/smcclennon/Primer.svg)](https://hits.dwyl.com/smcclennon/Primer)
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/smcclennon/Primer?include_prereleases)
-[![GitHub commits](https://img.shields.io/github/commits-since/smcclennon/Primer/v1.0.1.svg)](https://GitHub.com/smcclennon/Primer/commit/)
-![GitHub last commit](https://img.shields.io/github/last-commit/smcclennon/Primer)
 
 ## Features
 | Feature                                                                 |        Primer++         |        Primer (Python)        |
