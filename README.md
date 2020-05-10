@@ -1,9 +1,10 @@
-<div style="text-align:center">
-<img style="width: 10%;" src="https://smcclennon.github.io/assets/images/P%2B%2B256.png" alt="Primer++ logo">
+<p align="center">
+<img style="width: 10%; text-align:center" src="https://smcclennon.github.io/assets/images/P%2B%2B256.png" alt="Primer++ logo"/></img>
+</p>
 
-## Primer++
-<small>Rewritten from the ground up in C++ with stability and performance improvements</small>
-</div>
+<h2 align="center">Primer++</h2>
+<p align="center"><small>Rewritten from the ground up in C++ with stability and performance improvements</small></p>
+
 
 ## Features
 | Feature                                                                 |          Primer++          |            Primer (Python)            |
@@ -42,7 +43,9 @@
     7 / 5 != whole number
     7 / 6 != whole number
     Test_number must be prime!
-    -----------------------------
+    
+    Test_number += 2
+ 
     Test_number: 9
     9 / 3 == whole number
     Test number is not prime!
