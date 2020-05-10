@@ -12,7 +12,6 @@ num=3
 invalid=0
 found=0
 calculations=0
-taskDuration='0'
 attempts='...'
 config=[]
 
