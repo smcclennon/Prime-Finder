@@ -135,32 +135,40 @@ if semver(latest) > semver(ver):
 
 
 
-def updateFile(f):
+def updateFile(category):
     try:
-        if f == 'all':
+        if category == 'all':
             with open(f"{proj}.txt", "a") as prime_list:
                 prime_list.write('\n'+str(config["statistics"]["Latest Prime"]))
             with open(f"{proj}_config.json", "w") as config_file:
                 json.dump(config, config_file)
-        elif f == 'txt':
+
+        elif category == 'txt':
             with open(f"{proj}.txt", "a") as prime_list:
                 prime_list.write('\n'+str(config["statistics"]["Latest Prime"]))
-        elif f == 'config':
+
+        elif category == 'config':
             with open(f"{proj}_config.json", "w") as config_file:
                 json.dump(config, config_file)
+
     except Exception as e:
         print(f'\n{e}\nThis was likely caused by prime numbers being generated too quickly.')
         time.sleep(0.1)
+
         if str(e)[-2] == 't': #.tx(t)
             updateFile('txt')
             print('\n- Storage file updated')
+
         elif str(e)[-2] == 'g': #.confi(g)
             updateFile('config')
             print('\n- Config file updated')
+
         else:
             input('updateFile() Unknown fatal error')
             exit()
+
         print('File system is now up to date!\n')
+
 
 if Windows: os.system('cls')
 new_round = 'true' # New Round, track when a prime has just been found in the loop
