@@ -28,7 +28,7 @@ using std::endl;
 using std::string;
 using json = nlohmann::json;
 
-string ver = primer_ver();
+string primer_version = return_primer_version();
 string proj = "Primer++";
 string latest_prime_commas;
 
@@ -80,7 +80,7 @@ string insert_commas(unsigned long long num)
 }
 
 void windows_console_title(string title) {
-    system(("title " + proj + " " + ver + title).c_str());
+    system(("title " + proj + " " + primer_version + title).c_str());
 }
 
 int main()
@@ -89,7 +89,7 @@ int main()
     #ifdef _WIN32
     windows_console_title("");
     #endif
-    cout << proj << " " << ver << "   "
+    cout << proj << " " << primer_version << "   "
          << "A prime number generator\n"
          << "github.com/smcclennon/Primer\n"
          << "\nRewritten from the ground up in C++ (5th - 7th may 2020)\n"

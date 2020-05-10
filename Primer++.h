@@ -3,5 +3,5 @@
 // Simple header to aid with automated building
 
 #include <string>
-std::string primer_ver();
-std::string primer_ver() { return "1.2.2"; }
+std::string return_primer_version();
+std::string return_primer_version() { return "1.2.2"; }
