@@ -243,7 +243,7 @@ int main()
 
         json_config["statistics"]["Latest Prime"] = latest_prime() + 1;
         invalid = false;
-        #if _WIN32
+        #ifdef _WIN32
             if (previous_task_duration > 5) {
                 task_duration = ( std::clock() - task_start ) / static_cast<double>(CLOCKS_PER_SEC);
                 if (task_duration > 60) {
