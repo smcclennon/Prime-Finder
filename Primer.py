@@ -143,8 +143,8 @@ def updateFile(f):
             with open(f"{proj}_config.json", "w") as config_file:
                 json.dump(config, config_file)
         elif f == 'txt':
-            with open(f"{proj}.txt", "a") as prime_ffdb:
-                prime_ffdb.write('\n'+str(config["statistics"]["Latest Prime"]))
+            with open(f"{proj}.txt", "a") as prime_list:
+                prime_list.write('\n'+str(config["statistics"]["Latest Prime"]))
         elif f == 'config':
             with open(f"{proj}_config.json", "w") as config_file:
                 json.dump(config, config_file)
