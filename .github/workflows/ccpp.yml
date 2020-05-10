@@ -1,0 +1,26 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_windows:
+    runs-on: windows-latest
+    steps:
+    - name: build
+      run: g++ Primer++.cpp -o Primer++ -std=c++17
+
+  build_macos:
+    runs-on: macos-latest
+    steps:
+    - name: build
+      run: clang++ Primer++.cpp -o Primer++ -std=c++17
+
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - name: build
+      run: g++ Primer++.cpp -o Primer++ -std=c++17
