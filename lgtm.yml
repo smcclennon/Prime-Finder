@@ -1,0 +1,5 @@
+extraction:
+  cpp:
+     index:
+        build_command:
+        - g++ Primer++.cpp -o Primer++ -std=c++17
