@@ -65,9 +65,9 @@ if config["debugging"]["Force Unix"] == 'True':
 
 # Updater: Used to check for new releases on GitHub
 # github.com/smcclennon/Updater
-import os  # detecting OS type (nt, posix, java), clearing console window, restart the script
+# OS function used for detecting OS type (nt, posix, java), clearing console window, restart the script
 from distutils.version import LooseVersion as semver  # as semver for readability
-import urllib.request, json  # load and parse the GitHub API
+import urllib.request # access the GitHub API
 import platform  # Consistantly detect MacOS
 
 # Disable SSL certificate verification for MacOS (very bad practice, I know)
