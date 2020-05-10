@@ -1,6 +1,6 @@
 # Primer
 # github.com/smcclennon/Primer
-ver = '1.2.1'
+ver = '1.2.2'
 proj = 'Primer'
 
 
@@ -10,8 +10,9 @@ from distutils.version import LooseVersion as semver  # as semver for readabilit
 
 invalid=0
 found=0
-calculations=0
-taskDuration = '0'
+round_calculations=0  # Calculations for the current prime
+task_duration = 0
+previous_task_duration = 0
 attempts = '...'
 config = {
     "statistics": {
@@ -163,41 +164,45 @@ def updateFile(f):
         print('File system is now up to date!\n')
 
 if Windows: os.system('cls')
-nR = 'true' # New Round, track when a prime has just been found in the loop
+new_round = 'true' # New Round, track when a prime has just been found in the loop
 while True:
-    if nR == 'true':
-        taskStart = time.time()
-        nR = 'false'
+    if new_round == 'true':
+        task_start = time.time()
+        new_round = 'false'
 
     while invalid == 0:
         if int(str(config["statistics"]["Latest Prime"])[-1]) % 2 == 0:  # If number is even (ends in 0, 2, 4, 6, 8)
             config["statistics"]["Total Calculations"] += 1
-            calculations += 1
+            round_calculations += 1
             invalid = 1  # Skip processing the number
             break
 
         for i in range(3,config["statistics"]["Latest Prime"]):
             config["statistics"]["Total Calculations"] += 1
-            calculations += 1
+            round_calculations += 1
             if config["statistics"]["Latest Prime"] % i == 0: # If number is divisible by a number other than 1 or itself
-                calculations += 1
+                round_calculations += 1
                 invalid = 1
-        if Windows: taskDuration = round(time.time() - taskStart, 2)
+        if Windows:
+            task_duration = round(time.time() - task_start, 2)
+            previous_task_duration = task_duration
 
         if invalid == 0:
-            if not Windows: taskDuration = round(time.time() - taskStart, 2)
-            nR = 'true'
+            if not Windows: task_duration = round(time.time() - task_start, 2)
+            new_round = 'true'
             config["statistics"]["Primes Found"] += 1
             if Windows:
-                print(f'Found Prime [#{config["statistics"]["Primes Found"]:,}]!  -->  {config["statistics"]["Latest Prime"]:,}  <--  {calculations:,} calculations in {taskDuration} seconds')
+                print(f'Found Prime [#{config["statistics"]["Primes Found"]:,}]!  -->  {config["statistics"]["Latest Prime"]:,}  <--  {round_calculations:,} calculations in {task_duration} seconds')
             else:
-                print(f'{proj} v{ver} >>  Found Prime [#{config["statistics"]["Primes Found"]:,}]!  --> {config["statistics"]["Latest Prime"]:,} <--  [Total: {config["statistics"]["Total Calculations"]:,}] {calculations:,} calculations in {taskDuration} seconds')
+                print(f'{proj} v{ver} >>  Found Prime [#{config["statistics"]["Primes Found"]:,}]!  --> {config["statistics"]["Latest Prime"]:,} <--  [Total: {config["statistics"]["Total Calculations"]:,}] {round_calculations:,} calculations in {task_duration} seconds')
             calculations = 0
             updateFile('all')
             break
 
     config["statistics"]["Latest Prime"] += 1
     invalid = 0
-    if Windows:
-        ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {config["statistics"]["Total Calculations"]:,}  ---  Elapsed: {round(float(taskDuration), 1)}s  ---  Testing: {config["statistics"]["Latest Prime"]:,}')
+    if Windows and previous_task_duration > 5:
+        task_duration = round(time.time() - task_start, 2)
+        if task_duration > 60:
+            ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==   Total Calculations: {config["statistics"]["Total Calculations"]:,}  ---  Elapsed: {round(float(task_duration), 1)}s  ---  Testing: {config["statistics"]["Latest Prime"]:,}')
     # https://stackoverflow.com/questions/5676646
