@@ -93,7 +93,7 @@
 |:-:|:-|:-:|
 | Windows | Download the latest release [`Primer++.exe`](https://github.com/smcclennon/Primer/releases/latest/download/Primer++.exe) directly onto the target machine. | Download the latest release [`Primer.py`](https://github.com/smcclennon/Primer/releases/latest/download/Primer.py) directly onto the target machine. |
 | MacOS | Pre-compiled binary unavailable due to complications with statically linking [`Primer++.h`](Primer++.h) and [`json.hpp`](json.hpp) with [`Primer++.cpp`](Primer++.cpp). Because of this, it is currently only possible to run Primer++ on MacOS by building it yourself with the build instructions below. | Download the latest release [`Primer.py`](https://github.com/smcclennon/Primer/releases/latest/download/Primer.py) directly onto the target machine. |
-| Linux | Pre-compiled binary unavailable as the source code has not been tested on Linux yet. | Download the latest release [`Primer.py`](https://github.com/smcclennon/Primer/releases/latest/download/Primer.py) directly onto the target machine. |
+| Linux | Pre-compiled binary unavailable as the source code has not been compiled on Linux yet. | Download the latest release [`Primer.py`](https://github.com/smcclennon/Primer/releases/latest/download/Primer.py) directly onto the target machine. |
 
 </br>
 
@@ -108,11 +108,13 @@
 ### Building on MacOS:
 - Place [`Primer++.cpp`](Primer++.cpp), [`Primer++.h`](Primer++.h) and [`json.hpp`](json.hpp) in the same directory
 - Open a Terminal in that directory and run `clang++ Primer++.cpp -o Primer++ -std=c++17`
+- - Open Primer with `./Primer++`
 > Tested with Apple clang 11.0.3 on MacOS Catalina 10.15.4
 
 ### Building on Linux:
 - Place [`Primer++.cpp`](Primer++.cpp), [`Primer++.h`](Primer++.h) and [`json.hpp`](json.hpp) in the same directory
-- Open a Terminal in that directory and run `g++ Primer++.cpp -o Primer++ -std=c++17`
+- Open a Terminal in that directory and run `g++ Primer++.cpp -o Primer++ -static -std=c++17`
+- Open Primer with `./Primer++`
 > Currently untested. Build command may fail.
 
 </br>
