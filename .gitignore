@@ -1,5 +1,10 @@
 .vscode
+backup
 *.txt
 *.config
 *.json
 *.exe
+*.rc
+*.ico
+*.png
+build.py
