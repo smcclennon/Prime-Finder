@@ -14,7 +14,7 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        g++ Primer++.cpp -o Primer++ -std=c++17
+        g++ Primer++.cpp -o Primer++ --static -std=c++17
 
   build_macos:
     runs-on: macos-latest
@@ -32,4 +32,4 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        g++ Primer++.cpp -o Primer++ -std=c++17
+        g++ Primer++.cpp -o Primer++ -static -std=c++17
