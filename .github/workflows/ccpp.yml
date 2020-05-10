@@ -10,17 +10,26 @@ jobs:
   build_windows:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v2
     - name: build
-      run: g++ Primer++.cpp -o Primer++ -std=c++17
+      run: |
+        cd ${{ github.workspace }}
+        g++ Primer++.cpp -o Primer++ -std=c++17
 
   build_macos:
     runs-on: macos-latest
     steps:
+    - uses: actions/checkout@v2
     - name: build
-      run: clang++ Primer++.cpp -o Primer++ -std=c++17
+      run: |
+        cd ${{ github.workspace }}
+        clang++ Primer++.cpp -o Primer++ -std=c++17
 
   build_linux:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: build
-      run: g++ Primer++.cpp -o Primer++ -std=c++17
+      run: |
+        cd ${{ github.workspace }}
+        g++ Primer++.cpp -o Primer++ -std=c++17
