@@ -14,10 +14,10 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        make v=1 CC="x86_64-w64-mingw32-g++.exe"
+        make v=1
     - uses: actions/upload-artifact@v2
       with:
-        name: windows_build_raw
+        name: windows_build_static_metadata
         path: Primer++.exe
 
   build_macos:
