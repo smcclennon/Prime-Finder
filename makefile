@@ -12,6 +12,7 @@ OBJDIR = obj
 # OS-specific settings
 ifeq ($(OS),Windows_NT)  # is Windows_NT on XP, 2000, 7, Vista, 10...
 	detected_OS := Windows
+	windows_delete_command = del
 else
 	detected_OS := $(shell uname)
 endif
@@ -38,7 +39,6 @@ $(APPNAME): $(RESOURCE)
 .PHONY: clean
 clean:
 ifeq ($(detected_OS),Windows)
-	windows_delete_command = del
 	$(windows_delete_command) $(OBJDIR)\$(APPNAME).o
 else
 	rm $(OBJDIR)/$(APPNAME).o
