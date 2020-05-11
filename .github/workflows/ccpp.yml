@@ -16,8 +16,7 @@ jobs:
         cd ${{ github.workspace }}
         dir
         make v=1
-        dir obj
-        make clean
+        make clean windows_delete_command=rm
     - uses: actions/upload-artifact@v2
       with:
         name: windows_build_static_metadata
