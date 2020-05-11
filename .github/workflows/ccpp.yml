@@ -14,7 +14,9 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
+        ls
         make v=1
+        ls
     - uses: actions/upload-artifact@v2
       with:
         name: windows_build_static_metadata
