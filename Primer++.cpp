@@ -19,7 +19,6 @@
     #include "windows.h"
 #elif defined(__APPLE__) || defined(__linux__)
     #include <unistd.h>
-    bool linux = false;
 #endif
 
 
