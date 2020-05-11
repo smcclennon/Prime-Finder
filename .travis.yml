@@ -1,0 +1,16 @@
+language: cpp
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - g++
+  - clang++
+
+jobs:
+  include:
+    - stage: build
+    - script: make cc=$cc
+    - stage: clean
+    - script: make clean
