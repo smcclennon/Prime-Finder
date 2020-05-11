@@ -11,14 +11,14 @@ OBJDIR = obj
 
 # OS-specific settings
 ifeq ($(OS),Windows_NT)  # is Windows_NT on XP, 2000, 7, Vista, 10...
-detected_OS := Windows
+	detected_OS := Windows
 else
 	detected_OS := $(shell uname)
 endif
 
 ifeq ($(detected_OS),Windows)
 	CXXFLAGS += $(EXTRACXXFLAGS)
-	RESOURCE = Primer++_resource.o
+	RESOURCE = $(OBJDIR)/Primer++_resource.o
 else
 	UNAME_S := $(shell uname -s)
 	ifneq ($(UNAME_S),Darwin)
@@ -27,15 +27,18 @@ else
 endif
 
 
+$(info    OS is $(detected_OS))
 
-all: $(APPNAME)
+$(APPNAME): $(RESOURCE)
 
 # Building .c/.cpp
-	$(CC) -c $<.cpp $(CXXFLAGS)
-	$(CC) $<.o $(RESOURCE) -o $< $(CXXFLAGS)
+	$(CC) -c $(SRCDIR)/$@.cpp -o $(OBJDIR)/$@.o $(CXXFLAGS)
+	$(CC) $(OBJDIR)/$@.o $< -o $@ $(CXXFLAGS)
 
+.PHONY: clean
+clean:
 ifeq ($(detected_OS),Windows)
-	del $(APPNAME).o
+	del $(OBJDIR)\\$(APPNAME).o
 else
-	rm $(APPNAME).o
+	rm $(OBJDIR)\\$(APPNAME).o
 endif
