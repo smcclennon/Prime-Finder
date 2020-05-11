@@ -15,7 +15,7 @@ jobs:
       run: |
         cd ${{ github.workspace }}
         dir
-        g++ -v
+        dir C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin
         make v=1
     - uses: actions/upload-artifact@v2
       with:
