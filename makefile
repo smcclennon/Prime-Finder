@@ -38,10 +38,8 @@ $(APPNAME): $(RESOURCE)
 .PHONY: clean
 clean:
 ifeq ($(detected_OS),Windows)
-	cd $(OBJDIR)
-	dir
-	rm $(OBJDIR)/$(APPNAME).o
-	#del $(APPNAME).o
+	windows_delete_command = del
+	$(windows_delete_command) $(OBJDIR)\$(APPNAME).o
 else
 	rm $(OBJDIR)/$(APPNAME).o
 endif
