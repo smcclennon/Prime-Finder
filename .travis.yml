@@ -6,13 +6,13 @@ jobs:
     - stage: linux
       os: linux
       compiler: g++
-      os: linux
+    - os: linux
       compiler: clang++
 
     - stage: osx
       os: osx
       compiler: g++
-      os: osx
+    - os: osx
       compiler: clang++
 
     - stage: windows
