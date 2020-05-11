@@ -4,19 +4,19 @@ language: cpp
 jobs:
   include:
     - stage: linux
-        - os: linux
-        compiler:
-        - g++
-        - clang++
+      os: linux
+      compiler:
+      - g++
+      - clang++
 
     - stage: osx
-        - os: osx
-        compiler:
-        - g++
-        - clang++
+      os: osx
+      compiler:
+      - g++
+      - clang++
 
     - stage: windows
-      - os: windows
+      os: windows
       before_install:
       - |-
           case $TRAVIS_OS_NAME in
