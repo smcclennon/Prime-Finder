@@ -4,7 +4,8 @@
 <p align="center"><small>Rewritten from the ground up in C++ with stability and performance improvements</small></p>
 
 ![C/C++ CI](https://github.com/smcclennon/Primer/workflows/C/C++%20CI/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/smcclennon/Primer/badge.svg?branch=master)](https://coveralls.io/github/smcclennon/Primer?branch=master)
+[![Build Status](https://travis-ci.com/smcclennon/Primer.svg?branch=master)](https://travis-ci.com/smcclennon/Primer)
+[![Build status](https://ci.appveyor.com/api/projects/status/58lu90c0l4020tlw?svg=true)](https://ci.appveyor.com/project/smcclennon/primer)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6dfa8cbba0284a2298ce7fa7fa1e265c)](https://www.codacy.com/manual/smcclennon/Primer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=smcclennon/Primer&amp;utm_campaign=Badge_Grade)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:cpp)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:python)
