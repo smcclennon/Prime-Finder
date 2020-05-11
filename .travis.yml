@@ -14,7 +14,7 @@ jobs:
       os: osx
       compiler: g++
 
-     os: osx
+      os: osx
       compiler: clang++
 
     - stage: windows
