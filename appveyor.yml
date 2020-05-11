@@ -1,4 +1,0 @@
-version: '{branch}-{build}'
-image: MinGW-w64
-build_script:
-- cmd: make
