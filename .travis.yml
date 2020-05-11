@@ -12,3 +12,7 @@ jobs:
   include:
     - stage: test
       script: make cc=$cc
+      script: make cc=$cc
+      script: make cc=$cc
+      script: make cc=$cc
+      script: make cc=$cc
