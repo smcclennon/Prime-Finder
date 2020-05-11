@@ -14,10 +14,11 @@ jobs:
       os: osx
       compiler: g++
 
-    - os: osx
+     os: osx
       compiler: clang++
 
-    - os: windows
+    - stage: windows
+      os: windows
       before_install:
       - |-
           case $TRAVIS_OS_NAME in
@@ -51,6 +52,7 @@ jobs:
           directories:
           - $HOME/AppData/Local/Temp/chocolatey
           - /C/tools/msys64
+      script: mingw32-make cc=$cc
 
 
 script: make cc=$cc
