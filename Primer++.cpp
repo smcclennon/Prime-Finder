@@ -11,7 +11,7 @@
 #include <fstream>
 #include <ctime>
 #include <map>
-#include "Primer++.h" // Get the version number (aids with automatic building)
+#include "Primer++.hpp" // Get the version number (aids with automatic building)
 #include "json.hpp"
 
 // OS specific features
