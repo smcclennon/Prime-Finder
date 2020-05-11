@@ -40,7 +40,8 @@ clean:
 ifeq ($(detected_OS),Windows)
 	cd $(OBJDIR)
 	dir
-	del $(APPNAME).o
+	rm $(OBJDIR)/$(APPNAME).o
+	#del $(APPNAME).o
 else
 	rm $(OBJDIR)/$(APPNAME).o
 endif
