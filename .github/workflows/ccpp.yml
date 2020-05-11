@@ -14,9 +14,7 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        dir
-        dir C:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin
-        make v=1
+        make v=1 CC="x86_64-w64-mingw32-g++.exe"
     - uses: actions/upload-artifact@v2
       with:
         name: windows_build_raw
