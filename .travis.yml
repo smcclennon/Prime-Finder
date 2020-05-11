@@ -5,17 +5,15 @@ jobs:
   include:
     - stage: linux
       os: linux
-      compiler: g++
-
-      os: linux
-      compiler: clang++
+      compiler:
+       - g++
+       - clang++
 
     - stage: osx
       os: osx
-      compiler: g++
-
-      os: osx
-      compiler: clang++
+      compiler:
+       - g++
+       - clang++
 
     - stage: windows
       os: windows
@@ -38,7 +36,6 @@ jobs:
               export MAKE=mingw32-make  # so that Autotools can find it
               ;;
           esac
-
       before_cache:
       - |-
           case $TRAVIS_OS_NAME in
@@ -47,7 +44,6 @@ jobs:
               $msys2 pacman --sync --clean --noconfirm
               ;;
           esac
-
       cache:
           directories:
           - $HOME/AppData/Local/Temp/chocolatey
