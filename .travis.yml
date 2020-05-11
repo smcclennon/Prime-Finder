@@ -10,9 +10,15 @@ compiler:
 
 jobs:
   include:
-    - stage: test
-      script: make cc=$cc
-      script: make cc=$cc
-      script: make cc=$cc
-      script: make cc=$cc
-      script: make cc=$cc
+    - stage: linux
+      os: linux
+      compiler: g++
+
+    - stage: osx
+      os: osx
+      compiler: g++
+
+    - os: osx
+      compiler: clang++
+
+script: make cc=$cc
