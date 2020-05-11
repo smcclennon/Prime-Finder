@@ -8,4 +8,7 @@ compiler:
   - g++
   - clang++
 
-- script: make cc=$cc
+jobs:
+  include:
+    - stage: test
+      script: make cc=$cc
