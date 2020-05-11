@@ -3,19 +3,19 @@ language: cpp
 
 jobs:
   include:
-    - stage: linux
+    - stage: Build Linux
       os: linux
       compiler: g++
     - os: linux
       compiler: clang++
 
-    - stage: osx
+    - stage: Build Mac OS X
       os: osx
       compiler: g++
     - os: osx
       compiler: clang++
 
-    - stage: windows
+    - stage: Build Windows
       os: windows
       before_install:
       - |-
