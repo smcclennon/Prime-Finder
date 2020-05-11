@@ -14,7 +14,8 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        make -d
+        dir
+        make v=1
     - uses: actions/upload-artifact@v2
       with:
         name: windows_build_raw
@@ -27,7 +28,8 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        make -d
+        ls
+        make v=1
     - uses: actions/upload-artifact@v2
       with:
        name: macos_build_dynamic
@@ -40,7 +42,8 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        make -d
+        ls
+        make v=1
     - uses: actions/upload-artifact@v2
       with:
         name: linux_build_static
