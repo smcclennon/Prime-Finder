@@ -5,15 +5,15 @@ jobs:
   include:
     - stage: linux
         - os: linux
-        - compiler:
-          - g++
-          - clang++
+        compiler:
+        - g++
+        - clang++
 
     - stage: osx
         - os: osx
-        - compiler:
-          - g++
-          - clang++
+        compiler:
+        - g++
+        - clang++
 
     - stage: windows
       - os: windows
