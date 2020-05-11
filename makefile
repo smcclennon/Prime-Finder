@@ -12,12 +12,12 @@ OBJDIR = obj
 # OS-specific settings
 ifeq ($(OS),Windows_NT)  # is Windows_NT on XP, 2000, 7, Vista, 10...
 detected_OS := Windows
-	CXXFLAGS += $(extra-windows-flag)
 else
 	detected_OS := $(shell uname)
 endif
 
 ifeq ($(detected_OS),Windows)
+	CXXFLAGS += $(EXTRACXXFLAGS)
 	RESOURCE = Primer++_resource.o
 else
 	UNAME_S := $(shell uname -s)
