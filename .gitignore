@@ -9,3 +9,4 @@ backup
 *.png
 build.py
 Primer++
+resource_gen.py
