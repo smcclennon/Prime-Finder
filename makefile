@@ -30,7 +30,7 @@ endif
 all: $(APPNAME)
 
 # Building .c/.cpp
-	$(CC) -c $<.cpp
+	$(CC) -c $<.cpp $(CXXFLAGS)
 	$(CC) $<.o $(RESOURCE) -o $< $(CXXFLAGS)
 
 ifeq ($(detected_OS),Windows)
