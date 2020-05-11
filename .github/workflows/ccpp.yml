@@ -14,8 +14,9 @@ jobs:
     - name: build
       run: |
         cd ${{ github.workspace }}
-        ls
+        dir
         make v=1
+        dir obj
         make clean
     - uses: actions/upload-artifact@v2
       with:
@@ -31,6 +32,7 @@ jobs:
         cd ${{ github.workspace }}
         ls
         make v=1
+        ls obj
         make clean
     - uses: actions/upload-artifact@v2
       with:
@@ -46,6 +48,7 @@ jobs:
         cd ${{ github.workspace }}
         ls
         make v=1
+        ls obj
         make clean
     - uses: actions/upload-artifact@v2
       with:
