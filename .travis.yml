@@ -16,5 +16,4 @@ jobs:
       compiler: clang++
 
 
-
-      script: make cc=$cc
+script: make cc=$cc
