@@ -1,4 +1,4 @@
-name: C++ CI Windows
+name: build (Windows)
 
 on:
   push:
