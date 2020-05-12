@@ -3,13 +3,15 @@
 <h2 align="center">Primer++</h2>
 <p align="center"><small>Rewritten from the ground up in C++ with stability and performance improvements</small></p>
 
-[![C/C++ CI](https://github.com/smcclennon/Primer/workflows/C/C++%20CI/badge.svg)](https://github.com/smcclennon/Primer/actions?query=workflow%3A%22C%2FC%2B%2B+CI%22)
-[![Build Status](https://travis-ci.com/smcclennon/Primer.svg?branch=master)](https://travis-ci.com/smcclennon/Primer)
-[![Build status](https://ci.appveyor.com/api/projects/status/58lu90c0l4020tlw?svg=true)](https://ci.appveyor.com/project/smcclennon/primer)
+[![Build Status (GitHub)](https://github.com/smcclennon/Primer/workflows/C/C++%20CI/badge.svg)](https://github.com/smcclennon/Primer/actions?query=workflow%3A%22C%2FC%2B%2B+CI%22)
+[![Build Status (Travis)](https://travis-ci.com/smcclennon/Primer.svg?branch=master)](https://travis-ci.com/smcclennon/Primer)
+[![Build status (AppVeyor)](https://ci.appveyor.com/api/projects/status/58lu90c0l4020tlw?svg=true)](https://ci.appveyor.com/project/smcclennon/primer)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6dfa8cbba0284a2298ce7fa7fa1e265c)](https://www.codacy.com/manual/smcclennon/Primer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=smcclennon/Primer&amp;utm_campaign=Badge_Grade)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:cpp)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:python)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a4e85e15988e4dab380f/maintainability)](https://codeclimate.com/github/smcclennon/Primer/maintainability)
+[![License](https://img.shields.io/github/license/smcclennon/Primer)](license)
+[![FOSSA license Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer?ref=badge_shield)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/smcclennon/Primer?include_prereleases)](https://github.com/smcclennon/Primer/releases)
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/smcclennon/Primer/latest)](https://github.com/smcclennon/Primer/commits)
 [![GitHub last commit](https://img.shields.io/github/last-commit/smcclennon/Primer)](https://github.com/smcclennon/Primer/commits)
