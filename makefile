@@ -8,6 +8,7 @@ APPNAME = Primer++
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
+OUT = $(APPNAME)
 
 # OS-specific settings
 ifeq ($(OS),Windows_NT)  # is Windows_NT on XP, 2000, 7, Vista, 10...
@@ -19,7 +20,12 @@ endif
 
 ifeq ($(detected_OS),Windows)
 	CXXFLAGS += $(EXTRACXXFLAGS)
-	RESOURCE = $(OBJDIR)/Primer++_resource.o
+	RESOURCE = $(APPNAME)_resource.o
+	ifeq ($(32-bit),true)
+		OUT = $(APPNAME)_32
+		RESOURCE = $(APPNAME)_x32_resource.o
+		CXXFLAGS += -m32
+	endif
 else
 	UNAME_S := $(shell uname -s)
 	ifneq ($(UNAME_S),Darwin)
@@ -28,18 +34,19 @@ else
 endif
 
 
+
 $(info    OS is $(detected_OS))
 
-$(APPNAME): $(RESOURCE)
+$(APPNAME):
 
 # Building .c/.cpp
-	$(CC) -c $(SRCDIR)/$@.cpp -o $(OBJDIR)/$@.o $(CXXFLAGS)
-	$(CC) $(OBJDIR)/$@.o $< -o $@ $(CXXFLAGS)
+	$(CC) -c $(SRCDIR)/$@.cpp -o $(OBJDIR)/$(OUT).o $(CXXFLAGS)
+	$(CC) $(OBJDIR)/$(OUT).o $(OBJDIR)/$(RESOURCE) -o $(OUT) $(CXXFLAGS)
 
 .PHONY: clean
 clean:
 ifeq ($(detected_OS),Windows)
-	$(windows_delete_command) $(OBJDIR)\$(APPNAME).o
+	$(windows_delete_command) $(OBJDIR)\$(OUT).o
 else
-	rm $(OBJDIR)/$(APPNAME).o
+	rm $(OBJDIR)/$(OUT).o
 endif
