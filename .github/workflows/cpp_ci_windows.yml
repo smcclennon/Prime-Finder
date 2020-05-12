@@ -23,7 +23,7 @@ jobs:
         ls
         make v=1 cc=${{ matrix.cc }}
         ls obj
-        make clean
+        make clean windows_delete_command=rm
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }} - ${{ matrix.compiler }} [Static]
