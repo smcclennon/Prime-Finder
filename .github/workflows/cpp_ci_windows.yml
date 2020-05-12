@@ -20,7 +20,7 @@ jobs:
       run: |
         cd ${{ github.workspace }}
         ls
-        make v=1 c=${{ matrix.compiler }}
+        make v=1 cc=${{ matrix.compiler }}
         ls obj
         make clean windows_delete_command=rm
     - uses: actions/upload-artifact@v2
