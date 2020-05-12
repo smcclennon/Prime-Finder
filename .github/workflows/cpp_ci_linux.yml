@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build (${{ matrix.compiler }})
+      with:
+        compiler: ${{ matrix.python-version }}
       run: |
         cd ${{ github.workspace }}
         ls
