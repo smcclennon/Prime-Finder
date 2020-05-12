@@ -20,10 +20,10 @@ endif
 
 ifeq ($(detected_OS),Windows)
 	CXXFLAGS += $(EXTRACXXFLAGS)
-	RESOURCE = $(APPNAME)_resource.o
+	RESOURCE = $(OBJDIR)/$(APPNAME)_resource.o
 	ifeq ($(32-bit),true)
 		OUT = $(APPNAME)_32
-		RESOURCE = $(APPNAME)_x32_resource.o
+		RESOURCE = $(OBJDIR)/$(APPNAME)_x32_resource.o
 		CXXFLAGS += -m32
 	endif
 else
@@ -41,7 +41,7 @@ $(APPNAME):
 
 # Building .c/.cpp
 	$(CC) -c $(SRCDIR)/$@.cpp -o $(OBJDIR)/$(OUT).o $(CXXFLAGS)
-	$(CC) $(OBJDIR)/$(OUT).o $(OBJDIR)/$(RESOURCE) -o $(OUT) $(CXXFLAGS)
+	$(CC) $(OBJDIR)/$(OUT).o $(RESOURCE) -o $(OUT) $(CXXFLAGS)
 
 .PHONY: clean
 clean:
