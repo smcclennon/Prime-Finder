@@ -10,7 +10,6 @@ jobs:
   build_windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
     - name: build
       run: |
         cd ${{ github.workspace }}
@@ -25,7 +24,6 @@ jobs:
   build_macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
     - name: build
       run: |
         cd ${{ github.workspace }}
@@ -41,7 +39,6 @@ jobs:
   build_linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
     - name: build
       run: |
         cd ${{ github.workspace }}
