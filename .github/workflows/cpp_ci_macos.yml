@@ -9,21 +9,22 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        compiler: ['g++', 'clang++']
+        os: [macos-latest]
+        cc: [g++, clang++]
 
     steps:
     - uses: actions/checkout@v2
-    - name: build (${{ matrix.compiler }})
+    - name: build (${{ matrix.cc }})
       run: |
         cd ${{ github.workspace }}
         ls
-        make v=1 cc=${{ matrix.compiler }}
+        make v=1 cc=${{ matrix.cc }}
         ls obj
         make clean
     - uses: actions/upload-artifact@v2
       with:
-        name: Ubuntu Static (${{ matrix.compiler }})
+        name: ${{ matrix.os }} - ${{ matrix.compiler }} [Dynamic]
         path: Primer++
