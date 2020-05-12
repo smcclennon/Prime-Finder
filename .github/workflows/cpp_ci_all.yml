@@ -1,4 +1,4 @@
-name: build (C++)
+name: build (Windows)
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [windows-latest]
         cc: [g++, clang++]
 
     steps:
@@ -27,5 +27,8 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }} - ${{ matrix.compiler }}
-        path: Primer++.exe
         path: Primer++
+    - uses: actions/upload-artifact@v2 
+      with:
+        name: ${{ matrix.os }} - ${{ matrix.compiler }}
+        path: Primer++.exe
