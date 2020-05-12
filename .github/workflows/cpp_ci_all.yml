@@ -28,7 +28,7 @@ jobs:
       with:
         name: ${{ matrix.os }} - ${{ matrix.compiler }}
         path: Primer++
-    - uses: actions/upload-artifact@v2 
+    - uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }} - ${{ matrix.compiler }}
         path: Primer++.exe
