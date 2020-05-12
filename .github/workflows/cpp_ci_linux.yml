@@ -1,0 +1,24 @@
+name: C++ CI Linux
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: |
+        cd ${{ github.workspace }}
+        ls
+        make v=1
+        ls obj
+        make clean
+    - uses: actions/upload-artifact@v2
+      with:
+        name: linux_build_static
+        path: Primer++

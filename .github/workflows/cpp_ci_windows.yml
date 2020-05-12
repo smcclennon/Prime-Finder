@@ -1,0 +1,22 @@
+name: C++ CI Windows
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_windows:
+    runs-on: windows-latest
+    steps:
+    - name: build
+      run: |
+        cd ${{ github.workspace }}
+        dir
+        make v=1
+        make clean windows_delete_command=rm
+    - uses: actions/upload-artifact@v2
+      with:
+        name: windows_build_static_metadata
+        path: Primer++.exe

@@ -1,0 +1,23 @@
+name: C++ CI MacOS
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build_macos:
+    runs-on: macos-latest
+    steps:
+    - name: build
+      run: |
+        cd ${{ github.workspace }}
+        ls
+        make v=1
+        ls obj
+        make clean
+    - uses: actions/upload-artifact@v2
+      with:
+       name: macos_build_dynamic
+       path: Primer++
