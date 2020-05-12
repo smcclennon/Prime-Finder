@@ -9,20 +9,19 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        compiler: ['g++', 'clang++']
+        os: [ubuntu-16.04, ubuntu-latest]
+        cc: [g++, clang++]
 
     steps:
     - uses: actions/checkout@v2
-    - name: build (${{ matrix.compiler }})
-      with:
-        compiler: ${{ matrix.python-version }}
+    - name: build (${{ matrix.cc }})
       run: |
         cd ${{ github.workspace }}
         ls
-        make v=1 cc=${{ matrix.compiler }}
+        make v=1 cc=${{ matrix.cc }}
         ls obj
         make clean
     - uses: actions/upload-artifact@v2
