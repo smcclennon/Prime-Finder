@@ -153,7 +153,12 @@ A python script that generates prime numbers
 ## Screenshots
 ![Windows version](https://smcclennon.github.io/assets/images/screenshots/Primer/windows.png)
 ![Unix version](https://smcclennon.github.io/assets/images/screenshots/Primer/unix.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer?ref=badge_shield)
 
 *Written in Python 3.8 on Windows 10*
 
 <a href="https://www.freepik.com/free-photos-vectors/menu">Menu vector created by freepik - www.freepik.com</a>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer?ref=badge_large)
