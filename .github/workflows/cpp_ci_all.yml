@@ -1,0 +1,30 @@
+name: build (C++)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        cc: [g++, clang++]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build (${{ matrix.cc }})
+      run: |
+        cd ${{ github.workspace }}
+        ls
+        make v=1 cc=${{ matrix.cc }}
+        ls obj
+        make clean windows_delete_command=rm
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.os }} - ${{ matrix.cc }}
+        path: Primer++*
