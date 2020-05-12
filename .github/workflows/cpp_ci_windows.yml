@@ -7,17 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
-  build_windows:
+  build:
+
     runs-on: windows-latest
+    strategy:
+      matrix:
+        compiler: ['g++', 'clang++']
+
     steps:
     - uses: actions/checkout@v2
-    - name: build
+    - name: build (${{ matrix.compiler }})
       run: |
         cd ${{ github.workspace }}
-        dir
-        make v=1
+        ls
+        make v=1 c=${{ matrix.compiler }}
+        ls obj
         make clean windows_delete_command=rm
     - uses: actions/upload-artifact@v2
       with:
-        name: windows_build_static_metadata
+        name: Windows Static (${{ matrix.compiler }})
         path: Primer++.exe

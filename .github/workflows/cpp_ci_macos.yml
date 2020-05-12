@@ -7,18 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
-  build_macos:
+  build:
+
     runs-on: macos-latest
+    strategy:
+      matrix:
+        compiler: ['g++', 'clang++']
+
     steps:
     - uses: actions/checkout@v2
-    - name: build
+    - name: build (${{ matrix.compiler }})
       run: |
         cd ${{ github.workspace }}
         ls
-        make v=1
+        make v=1 c=${{ matrix.compiler }}
         ls obj
         make clean
     - uses: actions/upload-artifact@v2
       with:
-       name: macos_build_dynamic
-       path: Primer++
+        name: Ubuntu Static (${{ matrix.compiler }})
+        path: Primer++
