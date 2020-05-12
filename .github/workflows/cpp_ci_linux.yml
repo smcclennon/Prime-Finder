@@ -26,5 +26,5 @@ jobs:
         make clean
     - uses: actions/upload-artifact@v2
       with:
-        name: Ubuntu Static (${{ matrix.compiler }})
+        name: ${{ matrix.os }} - ${{ matrix.compiler }} [Static]
         path: Primer++
