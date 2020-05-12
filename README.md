@@ -99,13 +99,13 @@
 </br>
 
 ## Downloads
-| Edition      |   Primer++   |    Primer++     | Primer++  | Primer++  |        Primer        |
-|:-------------|:------------:|:---------------:|:---------:|:---------:|:--------------------:|
-| OS           | **Windows**  |   **Windows**   | **Linux** | **MacOS** | **Python-supported** |
-| Architecture |    32-bit    |     64-bit      |  64-bit   |  64-bit   |    Python Install    |
-| Filename     | Primer++.exe | Primer++_32.exe | Primer++  | Primer++  |    Primer&#46;py     |
+| Edition      |    Primer++     |   Primer++   | Primer++  | Primer++  |        Primer        |
+|:-------------|:---------------:|:------------:|:---------:|:---------:|:--------------------:|
+| OS           |   **Windows**   | **Windows**  | **Linux** | **MacOS** | **Python-supported** |
+| Architecture |     32-bit      |    64-bit    |  64-bit   |  64-bit   |    Python Install    |
+| Filename     | Primer++_32.exe | Primer++.exe | Primer++  | Primer++  |    Primer&#46;py     |
 | CI   | Untested | [![build (Windows)](https://github.com/smcclennon/Primer/workflows/build%20(Windows)/badge.svg?branch=master)](https://github.com/smcclennon/Primer/actions?query=workflow%3A"build+(Windows)") | [![build (Linux)](https://github.com/smcclennon/Primer/workflows/build%20(Linux)/badge.svg?branch=master)](https://github.com/smcclennon/Primer/actions?query=workflow%3A"build+(Linux)") | [![build (MacOS)](https://github.com/smcclennon/Primer/workflows/build%20(MacOS)/badge.svg?branch=master)](https://github.com/smcclennon/Primer/actions?query=workflow%3A"build+(MacOS)") | [![build (Python)](https://github.com/smcclennon/Primer/workflows/build%20(Python)/badge.svg?branch=master)](https://github.com/smcclennon/Primer/actions?query=workflow%3A"build+(Python)") |
-| Download | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer++.exe"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 32-bit Windows release"></a> | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer++_32.exe"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 64-bit Windows release"> | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer++"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 64-bit Linux release"></a> | Unavailable | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer.py"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer (Python) release"></a> |
+| Download | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer+_32+.exe"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 32-bit Windows release"></a> | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer++.exe"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 64-bit Windows release"> | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer++"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer++ 64-bit Linux release"></a> | Unavailable | <a href="https://github.com/smcclennon/Primer/releases/latest/download/Primer.py"><img src="https://smcclennon.github.io/update/download.png" alt="Download latest Primer (Python) release"></a> |
 
 MacOS pre-compiled binary unavailable due to complications with statically linking [`Primer++.hpp`](src/Primer++.hpp) and [`json.hpp`](src/json.hpp) with [`Primer++.cpp`](src/Primer++.cpp). Because of this, it is currently only possible to run Primer++ on MacOS by building it yourself with the build instructions below.
 
