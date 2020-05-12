@@ -26,5 +26,5 @@ jobs:
         make clean windows_delete_command=rm
     - uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.os }} - ${{ matrix.compiler }}
+        name: ${{ matrix.os }} - ${{ matrix.cc }}
         path: Primer++*
