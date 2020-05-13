@@ -59,7 +59,7 @@ while True:
         if int(str(num)[-1]) % 2 == 0:  # If number is even (ends in 0, 2, 4, 6, 8)
             total = total + 1
             calculations = calculations + 1
-            invalid = 1  # Skip processing the number
+            # Duplicate variable: invalid = 1  # Skip processing the number
             break
 
         for i in range(3,num):
