@@ -171,6 +171,7 @@ def updateFile(category):
 
 
 if Windows: os.system('cls')
+if Windows: ctypes.windll.kernel32.SetConsoleTitleW(f'   == {proj} v{ver} ==')  # Reset the console window title
 new_round = 'true' # New Round, track when a prime has just been found in the loop
 while True:
     if new_round == 'true':
@@ -181,7 +182,7 @@ while True:
         if int(str(config["statistics"]["Latest Prime"])[-1]) % 2 == 0:  # If number is even (ends in 0, 2, 4, 6, 8)
             config["statistics"]["Total Calculations"] += 1
             round_calculations += 1
-            invalid = 1  # Skip processing the number
+            # Duplicate variable: invalid = 1  # Skip processing the number
             break
 
         for i in range(3,config["statistics"]["Latest Prime"]):
