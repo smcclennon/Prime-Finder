@@ -12,7 +12,7 @@
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:cpp)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:python)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a4e85e15988e4dab380f/maintainability)](https://codeclimate.com/github/smcclennon/Primer/maintainability)
-[![License](https://img.shields.io/github/license/smcclennon/Primer)](license)
+[![License](https://img.shields.io/github/license/smcclennon/Primer)](LICENSE)
 [![FOSSA license Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer?ref=badge_shield)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/smcclennon/Primer?include_prereleases)](https://github.com/smcclennon/Primer/releases)
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/smcclennon/Primer/latest)](https://github.com/smcclennon/Primer/commits)
