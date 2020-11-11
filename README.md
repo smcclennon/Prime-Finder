@@ -12,7 +12,7 @@
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:cpp)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/smcclennon/Primer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/smcclennon/Primer/context:python)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a4e85e15988e4dab380f/maintainability)](https://codeclimate.com/github/smcclennon/Primer/maintainability)
-[![License](https://img.shields.io/github/license/smcclennon/Primer)](LICENSE)
+[![License](https://img.shields.io/github/license/smcclennon/Primer)](license)
 [![FOSSA license Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsmcclennon%2FPrimer?ref=badge_shield)
 [![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/smcclennon/Primer?include_prereleases)](https://github.com/smcclennon/Primer/releases)
 [![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/smcclennon/Primer/latest)](https://github.com/smcclennon/Primer/commits)
@@ -150,13 +150,21 @@ MacOS pre-compiled binary unavailable due to complications with statically linki
 *Written in C++ with (MinGW) GCC 8.1.0 on Windows 10*
 
 </br>
-</br>
+
+## Story
+On the 25th of November 2019 I was watching a [video](https://youtu.be/VYech-c5Dic) about the importance of prime numbers for encryption. This spiked my interest, and after learning how critical prime numbers are for the world we live in, I really wanted to start generating my own.
+
+The intention wasn't to find the next biggest prime number, Python is definitely the wrong language to use for that purpose, but instead just to see if I could continuously generate prime numbers, store them all to a file, and continue where I left off next time I start the script.
+
+I immediately made a head start on getting the basic generation working, and the following morning created a GitHub repository for the project and pushed what I had [created so far](https://github.com/smcclennon/Primer/blob/2c5ffa0f089ce3b70c6637a449532903cf3d288a/Primer.py).
+
+Its non-destructive nature suprised my teachers, and they were all rather impressed how Primer performed and the statistics it provided.
+
+Primer was re-written from the ground up in C++ (5th - 7th May 2020) with stability and performance improvements. This was my first real experience with the C++ language, and I really enjoyed it.
+
 </br>
 
-# Primer (Python)
-A python script that generates prime numbers
-
-## Screenshots
+## Primer Screenshots
 ![Windows version](https://smcclennon.github.io/assets/images/screenshots/Primer/windows.png)
 ![Unix version](https://smcclennon.github.io/assets/images/screenshots/Primer/unix.png)
 
