@@ -25,11 +25,7 @@ config = {
 }
 
 
-if os.name == 'nt':
-    Windows = True
-else:
-    Windows = False
-
+Windows = os.name == 'nt'
 try:
     with open(f"{proj}_config.json", "r") as config_file:
         config = json.load(config_file)
@@ -41,7 +37,7 @@ except:
             json.dump(config, config_file)
         print(f'Created {proj}_config.json')
         # Attempt to convert an old config into a new one
-        with open(f"Primer.config", "r") as old_config_file:
+        with open("Primer.config", "r") as old_config_file:
             oldconfig=old_config_file.readlines()
             config["statistics"]["Total Calculations"]=int(oldconfig[0])
             config["statistics"]["Primes Found"]=int(oldconfig[1])
@@ -89,12 +85,10 @@ if os.name == 'nt':
 updateAttempt = 0  # Keep track of failed attempts
 print('Checking for updates...', end='\r')
 while updateAttempt < 3:  # Try to retry the update up to 3 times if an error occurs
-    updateAttempt = updateAttempt+1
+    updateAttempt += 1
     try:
         with urllib.request.urlopen("https://smcclennon.github.io/update/api/3") as internalAPI:
-            repo = []
-            for line in internalAPI.readlines():
-                repo.append(line.decode().strip())
+            repo = [line.decode().strip() for line in internalAPI.readlines()]
             apiLatest = repo[0]  # Latest release details
             proj = repo[1]  # Project name
             ddl = repo[2]  # Direct download link
@@ -117,7 +111,7 @@ if semver(latest) > semver(ver):
     print(f'Latest Version: v{latest}\n')
     for release in releases:
         print(f'{release[0]}:\n{release[1]}\n')
-    confirm = input(str('Update now? [Y/n] ')).upper()
+    confirm = input('Update now? [Y/n] ').upper()
     if confirm != 'N':
         print(f'Downloading {proj} v{latest}...')
         urllib.request.urlretrieve(ddl, os.path.basename(__file__))  # download the latest version to cwd
